@@ -1,0 +1,151 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #292c30;
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* -------------------- */
+/* Header               */
+/* -------------------- */
+
+header {
+    text-align: center;
+
+    padding: 20px;
+
+    letter-spacing: 3px;
+}
+
+
+/* -------------------- */
+/* Main chat area       */
+/* -------------------- */
+
+.chat-area {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* -------------------- */
+/* Chat box             */
+/* -------------------- */
+
+.chat-box {
+    width: 100%;
+    max-width: 800px;
+    height: 70vh;
+
+    background-color: #1f2226;
+
+    border: 1px solid #3b3f45;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* -------------------- */
+/* Messages             */
+/* -------------------- */
+
+.messages {
+    flex: 1;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+
+/* Individual message */
+
+.message {
+    margin-bottom: 10px;
+
+    padding: 8px 12px;
+
+    background-color: #292c30;
+
+    border-radius: 6px;
+
+    width: fit-content;
+    max-width: 80%;
+}
+
+
+/* -------------------- */
+/* Input area           */
+/* -------------------- */
+
+.message-input {
+    display: flex;
+
+    padding: 12px;
+
+    gap: 10px;
+
+    border-top: 1px solid #3b3f45;
+}
+
+
+/* Text input */
+
+.message-input input {
+    flex: 1;
+
+    padding: 10px;
+
+    background-color: #292c30;
+    color: white;
+
+    border: 1px solid #3b3f45;
+    border-radius: 6px;
+
+    outline: none;
+}
+
+
+.message-input button {
+    padding: 10px 18px;
+
+    background-color: #3b82f6;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+
+.message-input button:hover {
+    background-color: #2563eb;
+}
+
+.system-message {
+    margin-bottom: 10px;
+    color: #888;
+    font-style: italic;
+}

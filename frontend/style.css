@@ -149,3 +149,10 @@ header {
     color: #888;
     font-style: italic;
 }
+
+.online-count {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 1px;
+}

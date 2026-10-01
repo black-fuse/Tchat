@@ -24,29 +24,26 @@ async def broadcast(message):
 
 
 async def handle_client(websocket):
-    """Handle one connected client."""
-
     connected_clients.add(websocket)
-
     print(f"Client connected. Total clients: {len(connected_clients)}")
+
+    await broadcast_user_count()
 
     try:
         async for raw_message in websocket:
-
             try:
                 data = json.loads(raw_message)
 
                 username = data.get("username", "Unknown")
                 message = data.get("message", "")
 
-                # Ignore empty messages
                 if not message.strip():
                     continue
 
-                # Limit message length
                 message = message[:2000]
 
                 response = json.dumps({
+                    "type": "message",
                     "username": username,
                     "message": message
                 })
@@ -67,6 +64,15 @@ async def handle_client(websocket):
             f"Total clients: {len(connected_clients)}"
         )
 
+        await broadcast_user_count()
+
+async def broadcast_user_count():
+    message = json.dumps({
+        "type": "user_count",
+        "count": len(connected_clients)
+    })
+
+    await broadcast(message)
 
 async def main():
     print("Starting communication server...")

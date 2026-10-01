@@ -47,15 +47,24 @@ socket.addEventListener("error", function (error) {
 // --------------------
 
 socket.addEventListener("message", function (event) {
-
     const data = JSON.parse(event.data);
 
-    addMessage(
-        data.username,
-        data.message
-    );
+    if (data.type === "message") {
+        addMessage(data.username, data.message);
+    }
 
+    if (data.type === "user_count") {
+        updateUserCount(data.count);
+    }
 });
+
+function updateUserCount(count) {
+    const onlineCount = document.getElementById("onlineCount");
+
+    onlineCount.textContent =
+        "🟢 " + count + (count === 1 ? " online" : " online");
+}
+
 
 
 // --------------------

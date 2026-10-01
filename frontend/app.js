@@ -9,7 +9,8 @@ const username =
 
 
 // Connect to the WebSocket server
-const socket = new WebSocket("ws://localhost:8765");
+//const socket = new WebSocket("ws://localhost:8765");
+const socket = new WebSocket("https://tchat-web.onrender.com/");
 
 
 // --------------------
